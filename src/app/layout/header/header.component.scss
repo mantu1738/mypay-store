@@ -1,0 +1,62 @@
+@import "../../.../../../variables.scss";
+
+.header {
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        box-shadow: $primary-box-shadow;
+    }
+
+    &__logo {
+        width: 150px;
+
+        @media screen and (max-width: 768px) {
+            width: 100px;
+        }
+    }
+
+    &__title {
+        font-size: 2.4rem;
+        font-weight: 700;
+
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
+    }
+
+    &__mypay {
+        color: $primary-color;
+    }
+
+    &__store {
+        color: $secondary-color;
+    }
+
+    &__rightnav {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        justify-content: center;
+
+        @media screen and (max-width: 768px) {
+            gap: 0.5rem;
+        }
+    }
+
+    &__icon {
+        color: $secondary-color;
+        font-size: 2.4rem;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            color: $primary-color;
+        }
+
+        @media screen and (max-width: 768px) {
+            font-size: 1.6rem;
+        }
+    }
+}

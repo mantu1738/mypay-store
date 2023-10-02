@@ -1,0 +1,30 @@
+@import "../../../../variables.scss";
+
+button {
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    outline: none;
+    padding: 0.8rem;
+    position: relative;
+    text-transform: uppercase;
+    border: 0;
+    color: $white-color;
+    transition: all 0.3s;
+    margin-bottom: 6px;
+    outline: none;
+    line-height: 14px;
+    cursor: pointer;
+    background: $primary-gradient;
+
+    &:hover {
+        background: $hover-gradient;
+    }
+
+    @media screen and (max-width: 768px) {
+        padding: 0.4rem;
+        font-size: 0.4rem;
+    }
+}

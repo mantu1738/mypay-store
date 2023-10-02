@@ -1,1 +1,14 @@
-<p>header works!</p>
+<div class="header">
+    <app-sale-banner></app-sale-banner>
+    <div class="header__container">
+        <img [src]="logoImagePath" alt="logo-image" class="header__logo">
+        <h1 class="header__title">
+            <span class="header__mypay">MyPay </span>
+            <span class="header__store">Store</span>
+        </h1>
+        <div class="header__rightnav">
+            <app-button buttonText="Login/SignUp" [icon]="logInIcon"></app-button>
+            <fa-icon class="header__icon" [icon]="shoppingCartIcon"></fa-icon>
+        </div>
+    </div>
+</div>

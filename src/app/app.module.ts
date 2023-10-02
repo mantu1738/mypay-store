@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -13,6 +15,8 @@ import { SharedModule } from '@shared/shared.module';
 import { MainpageComponent } from '@layout/mainpage/mainpage.component';
 import { HeaderComponent } from '@layout/header/header.component';
 import { FooterComponent } from '@layout/footer/footer.component';
+import { ButtonComponent } from '@shared/components/button/button.component';
+import { SaleBannerComponent } from '@shared/components/sale-banner/sale-banner.component';
 
 
 
@@ -21,7 +25,9 @@ import { FooterComponent } from '@layout/footer/footer.component';
     AppComponent,
     MainpageComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ButtonComponent,
+    SaleBannerComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +35,8 @@ import { FooterComponent } from '@layout/footer/footer.component';
     BrowserAnimationsModule,
     CoreModule,
     DataModule,
-    SharedModule
+    SharedModule,
+    FontAwesomeModule
   ],
   providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
   bootstrap: [AppComponent]

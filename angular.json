@@ -30,6 +30,11 @@
               "src/assets",
               "src/_redirects"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/shared/styles"
+              ]
+            },
             "styles": [
               "src/styles.scss"
             ],
