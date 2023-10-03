@@ -1,0 +1,99 @@
+@import "../../../../variables.scss";
+
+.product {
+    width: 100%;
+    background: $white-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: $primary-box-shadow;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+    }
+
+    &__image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+
+        @media screen and (max-width: 768px) {
+            flex: 0;
+        }
+
+
+        img {
+            width: 197px;
+
+            @media screen and (max-width: 768px) {
+                width: 100px;
+            }
+
+        }
+    }
+
+    &__details {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 0.6rem;
+
+        @media screen and (max-width: 768px) {
+            flex: 1;
+        }
+    }
+
+    &__title {
+        color: $primary-color;
+
+        @media screen and (max-width: 768px) {
+            font-size: 1rem;
+        }
+    }
+
+    &__metadata {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        font-weight: 700;
+
+        @media screen and (max-width: 768px) {
+            font-size: 0.5rem;
+        }
+
+    }
+
+    &__rating {
+        display: flex;
+        gap: 0.8rem;
+    }
+
+    &__desc {
+        line-height: 1.5;
+
+        @media screen and (max-width: 768px) {
+            font-size: 0.5rem;
+        }
+    }
+}
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    @media screen and (max-width: 768px) {
+        font-size: 0.5rem;
+    }
+
+    &__list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+}
