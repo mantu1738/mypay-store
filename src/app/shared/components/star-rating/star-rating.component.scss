@@ -1,0 +1,7 @@
+@import "../../../../variables.scss";
+
+.star-rating {
+    &__icon {
+        color: $secondary-color;
+    }
+}

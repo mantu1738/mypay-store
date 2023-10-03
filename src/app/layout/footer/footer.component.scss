@@ -1,0 +1,64 @@
+@import "../../../styles.scss";
+
+.footer {
+    background: $primary-gradient;
+    color: $white-color;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+
+    &__content {
+        display: flex;
+        justify-content: space-around;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+
+
+    }
+
+    &__section {
+        @include flex(column, flex-start, center, 0.4rem);
+
+        @media (max-width: 768px) {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    &__links {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        gap: 3rem;
+    }
+
+    &__link {
+        color: $white-color;
+        text-decoration: none;
+
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+
+    &__icons {
+        display: flex;
+        gap: 2rem;
+        color: $white-color;
+    }
+
+    &__icon {
+        cursor: pointer;
+
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+}

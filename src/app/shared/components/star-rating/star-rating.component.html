@@ -1,0 +1,5 @@
+<div class="star-rating">
+    <fa-icon class="star-rating__icon" [icon]="starIcon" *ngFor="let star of stars"></fa-icon>
+    <fa-icon class="star-rating__icon" [icon]="halfStarIcon" *ngIf="rating !== undefined && rating % 1 !== 0"></fa-icon>
+
+</div>

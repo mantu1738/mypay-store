@@ -4,8 +4,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
+
+
 @NgModule({
-  declarations: [],
+  declarations: [
+    // CardSkeletonComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,

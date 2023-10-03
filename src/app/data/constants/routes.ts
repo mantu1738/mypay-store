@@ -1,26 +1,30 @@
 import { Routes } from '@angular/router';
-import { MainpageComponent } from '@layout/mainpage/mainpage.component';
-import { AboutModule } from '@modules/about/about.module';
-import { ContactModule } from '@modules/contact/contact.module';
-import { HomeModule } from '@modules/home/home.module';
+
+import { ElectronicsProductsComponent } from '@app/layout/pages/electronics-products/electronics-products.component';
+import { JeweleryProductsComponent } from '@app/layout/pages/jewelery-products/jewelery-products.component';
+import { MenClothingComponent } from '@app/layout/pages/men-clothing/men-clothing.component';
+import { ProductsListComponent } from '@app/layout/pages/products-list/products-list.component';
+import { WomenClothingComponent } from '@app/layout/pages/women-clothing/women-clothing.component';
 
 export const routes: Routes = [
     {
         path: '',
-        component: MainpageComponent,
-        children: [
-            {
-                path: 'home',
-                loadChildren: () => import('@modules/home/home.module').then((m): typeof HomeModule => m.HomeModule)
-            },
-            {
-                path: 'about',
-                loadChildren: () => import('@modules/about/about.module').then((m): typeof AboutModule => m.AboutModule)
-            },
-            {
-                path: 'contact',
-                loadChildren: () => import('@modules/contact/contact.module').then((m): typeof ContactModule => m.ContactModule)
-            }
-        ]
-    }
-];
+        component: ProductsListComponent,
+    },
+    {
+        path: 'electronics',
+        component: ElectronicsProductsComponent,
+    },
+    {
+        path: 'jewelery',
+        component: JeweleryProductsComponent
+    },
+    {
+        path: `men's clothing`,
+        component: MenClothingComponent
+    },
+    {
+        path: `women's clothing`,
+        component: WomenClothingComponent
+    },
+]

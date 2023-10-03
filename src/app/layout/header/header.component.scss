@@ -2,11 +2,10 @@
 
 .header {
     &__container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include flex(row, space-between, center);
         padding: 0.5rem 1rem;
         box-shadow: $primary-box-shadow;
+        background: $white-color;
     }
 
     &__logo {
@@ -35,10 +34,7 @@
     }
 
     &__rightnav {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        justify-content: center;
+        @include flex(row, center, center, 1rem);
 
         @media screen and (max-width: 768px) {
             gap: 0.5rem;

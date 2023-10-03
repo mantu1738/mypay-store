@@ -1,6 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { faForward } from '@fortawesome/free-solid-svg-icons';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-button',
@@ -9,6 +7,5 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 })
 export class ButtonComponent {
   @Input() buttonText: string = 'Click me';
-  @Input() icon: any = null;
 }
 

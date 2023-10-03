@@ -1,0 +1,26 @@
+<!-- product-list-item.component.html -->
+<div class="product">
+    <a class="product__itemLink" routerLink="jewelery">
+        <img class="product__image" [src]="product.image" alt="{{ product.title }}">
+    </a>
+    <div class="product__details">
+        <h3 class="product__title">{{ product.title }}</h3>
+        <p class="product__description">{{ product.description }}</p>
+        <div class="product__info info">
+            <div class="info__item product__rating">
+                <strong>Rating:</strong>
+                <app-star-rating [rating]="product.rating.rate"></app-star-rating>
+            </div>
+            <div class="info__item">
+                <strong>Stock:</strong> {{ product.rating.count }}
+            </div>
+            <div class="info__item">
+                <strong>Category:</strong> {{ product.category }}
+            </div>
+            <div class="info__item">
+                <strong>Price:</strong> {{ product.price | currency:'USD':'symbol' }}
+            </div>
+        </div>
+    </div>
+    <app-button buttonText="Add to Cart"></app-button>
+</div>

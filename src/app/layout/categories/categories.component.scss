@@ -1,0 +1,25 @@
+@import "../../../variables.scss";
+
+.category {
+    list-style: none;
+    box-shadow: $primary-box-shadow;
+
+    &__list {
+        @include flex(row, space-evenly, center, 0);
+
+        padding: 0 1rem;
+        list-style: none;
+    }
+
+    &__link {
+        display: block;
+        padding: 1rem 0;
+        color: $primary-color;
+        text-decoration: none;
+        font-weight: 600;
+
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+}
