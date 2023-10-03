@@ -9,4 +9,5 @@ import { Product } from '@app/data/interfaces/products.interface';
 })
 export class ProductListItemComponent {
   @Input() product: Product = {} as Product;
+  @Input() routePath: string = '';
 }

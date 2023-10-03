@@ -24,6 +24,7 @@ import { MenClothingComponent } from '@layout/pages/men-clothing/men-clothing.co
 import { WomenClothingComponent } from '@layout/pages/women-clothing/women-clothing.component';
 import { ProductListItemComponent } from '@shared/components/product-list-item/product-list-item.component';
 import { StarRatingComponent } from '@shared/components/star-rating/star-rating.component';
+import { ProductDetailComponent } from './layout/pages/product-detail/product-detail.component';
 
 
 
@@ -43,7 +44,8 @@ import { StarRatingComponent } from '@shared/components/star-rating/star-rating.
     MenClothingComponent,
     WomenClothingComponent,
     ProductListItemComponent,
-    StarRatingComponent
+    StarRatingComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

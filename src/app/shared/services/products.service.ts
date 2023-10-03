@@ -30,4 +30,8 @@ export class ProductsService {
     getWomenClothing(): Observable<Product[]> {
         return this.http.get<Product[]>(apiUrl.WomenClothing);
     }
+
+    getProductsById(id: number): Observable<Product> {
+        return this.http.get<Product>(`${apiUrl.AllProducts}/${id}`);
+    }
 }

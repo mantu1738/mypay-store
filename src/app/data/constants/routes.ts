@@ -5,6 +5,7 @@ import { JeweleryProductsComponent } from '@app/layout/pages/jewelery-products/j
 import { MenClothingComponent } from '@app/layout/pages/men-clothing/men-clothing.component';
 import { ProductsListComponent } from '@app/layout/pages/products-list/products-list.component';
 import { WomenClothingComponent } from '@app/layout/pages/women-clothing/women-clothing.component';
+import { ProductDetailComponent } from '@app/layout/pages/product-detail/product-detail.component';
 
 export const routes: Routes = [
     {
@@ -26,5 +27,25 @@ export const routes: Routes = [
     {
         path: `women's clothing`,
         component: WomenClothingComponent
+    },
+    {
+        path: 'product/:id',
+        component: ProductDetailComponent
+    },
+    {
+        path: 'electronics/product/:id',
+        component: ProductDetailComponent
+    },
+    {
+        path: 'jewelery/product/:id',
+        component: ProductDetailComponent
+    },
+    {
+        path: `men's clothing/product/:id`,
+        component: ProductDetailComponent
+    },
+    {
+        path: `women's clothing/product/:id`,
+        component: ProductDetailComponent
     },
 ]
