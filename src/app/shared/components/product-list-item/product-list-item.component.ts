@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 import { Product } from '@app/data/interfaces/products.interface';
+import { CartService } from '@app/shared/services/cart.service';
 
 @Component({
   selector: 'app-product-list-item',
@@ -10,4 +11,13 @@ import { Product } from '@app/data/interfaces/products.interface';
 export class ProductListItemComponent {
   @Input() product: Product = {} as Product;
   @Input() routePath: string = '';
+
+
+  constructor(private CartService: CartService) {
+  }
+
+  addToCart(productId: number): void {
+    this.CartService.addToCartByProductId(productId)
+      .subscribe();
+  }
 }

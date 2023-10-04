@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { userService } from '@app/shared/services/user.service';
+import { CartService } from '@app/shared/services/cart.service';
 
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
@@ -16,6 +17,9 @@ export class HeaderComponent implements OnInit {
   shoppingCartIcon: any = faShoppingCart;
   isLoginRoute: boolean = false;
   isLogged: boolean = false;
+  cartValue: number = this.CartService.getCartCount();
+
+
 
 
   /**
@@ -24,7 +28,7 @@ export class HeaderComponent implements OnInit {
   * @param {Router} router - The Angular Router service for navigation.
   * @param {ActivatedRoute} route - The Angular ActivatedRoute service for route information.
   */
-  constructor(private router: Router, private route: ActivatedRoute, private userService: userService) {
+  constructor(private router: Router, private route: ActivatedRoute, private userService: userService, private CartService: CartService) {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
@@ -35,6 +39,9 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLogged = this.userService.isLogged();
+    this.CartService.cartItemCount$.subscribe(count => {
+      this.cartValue = count;
+    });
   }
 
 

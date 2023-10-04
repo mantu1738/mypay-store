@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '@app/data/interfaces/products.interface';
 import { ProductsService } from '@shared/services/products.service';
+import { CartService } from '@shared/services/cart.service';
 
 @Component({
   selector: 'app-products-list',
@@ -19,4 +20,5 @@ export class ProductsListComponent implements OnInit {
       this.loading = false;
     });
   }
+
 }

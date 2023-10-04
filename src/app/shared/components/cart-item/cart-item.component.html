@@ -1,0 +1,10 @@
+<div class="container">
+    <img [src]="product.image" alt="{{ product.title }}" class="container__image">
+    <div class="container__details">
+        <a class="container__title" [href]="'product/'+product.id">{{ product.title }}</a>
+        <p class="container__price"><strong>Price:</strong> {{ product.price | currency: 'USD' }}</p>
+        <p class="container__quantity"><strong>Quantity: </strong>{{ product.quantity}}</p>
+        <app-button buttonText="Add to Cart" (onClick)="handleAddToCart(product.id)"></app-button>
+    </div>
+    <fa-icon class="container__delete" (click)="handleClick(product.id)" [icon]="deleteIcon"></fa-icon>
+</div>

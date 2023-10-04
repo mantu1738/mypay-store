@@ -10,7 +10,10 @@
 
             <app-button *ngIf="!isLoginRoute && !isLogged" buttonText="Login" (onClick)="redirectLogin()"></app-button>
             <app-button *ngIf="isLogged && !isLoginRoute" buttonText="Logout" (onClick)="logOut()"></app-button>
-            <fa-icon class="header__icon" [icon]="shoppingCartIcon"></fa-icon>
+            <div class="cartWrapper">
+                <fa-icon class="header__icon" routerLink="cart" [icon]="shoppingCartIcon"></fa-icon>
+                <span class="cartWrapper__badge">{{cartValue}}</span>
+            </div>
         </div>
     </div>
 </div>

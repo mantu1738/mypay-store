@@ -1,0 +1,38 @@
+@import "../../../../variables.scss";
+
+.container {
+    @include flex(row, center, center, 1rem);
+
+    box-shadow: $primary-box-shadow;
+    padding: 1rem;
+    background: $white-color;
+    margin-bottom: 0.4rem;
+
+    &__image {
+        width: 100px;
+        height: 100px;
+        margin-right: 1rem;
+    }
+
+    &__details {
+        @include flex(column, center, flex-start, 0.4rem);
+        flex-grow: 1;
+    }
+
+    &__title {
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: $primary-color;
+    }
+
+    &__delete {
+        font-size: 2rem;
+        color: $primary-color;
+        cursor: pointer;
+
+        &:hover {
+            color: $error-color;
+        }
+    }
+}
