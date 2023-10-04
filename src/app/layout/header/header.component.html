@@ -7,7 +7,9 @@
             <span class="header__store">Store</span>
         </h1>
         <div class="header__rightnav">
-            <app-button buttonText="Login/SignUp"></app-button>
+
+            <app-button *ngIf="!isLoginRoute && !isLogged" buttonText="Login" (onClick)="redirectLogin()"></app-button>
+            <app-button *ngIf="isLogged && !isLoginRoute" buttonText="Logout" (onClick)="logOut()"></app-button>
             <fa-icon class="header__icon" [icon]="shoppingCartIcon"></fa-icon>
         </div>
     </div>

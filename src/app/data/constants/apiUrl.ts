@@ -5,5 +5,6 @@ export const apiUrl = {
     Jewelry: `${baseApiUrl}/products/category/jewelery`,
     Electronics: `${baseApiUrl}/products/category/electronics`,
     MenClothing: `${baseApiUrl}/products/category/men's clothing`,
-    WomenClothing: `${baseApiUrl}/products/category/women's clothing`
+    WomenClothing: `${baseApiUrl}/products/category/women's clothing`,
+    userLogin: `${baseApiUrl}/auth/login`,
 }

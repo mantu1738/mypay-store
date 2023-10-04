@@ -4,11 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 
 import { MainpageComponent } from '@layout/mainpage/mainpage.component';
 import { HeaderComponent } from '@layout/header/header.component';
@@ -25,6 +26,7 @@ import { WomenClothingComponent } from '@layout/pages/women-clothing/women-cloth
 import { ProductListItemComponent } from '@shared/components/product-list-item/product-list-item.component';
 import { StarRatingComponent } from '@shared/components/star-rating/star-rating.component';
 import { ProductDetailComponent } from './layout/pages/product-detail/product-detail.component';
+import { LoginPageComponent } from './layout/pages/login-page/login-page.component';
 
 
 
@@ -45,7 +47,8 @@ import { ProductDetailComponent } from './layout/pages/product-detail/product-de
     WomenClothingComponent,
     ProductListItemComponent,
     StarRatingComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ import { ProductDetailComponent } from './layout/pages/product-detail/product-de
     BrowserAnimationsModule,
     FontAwesomeModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
   bootstrap: [AppComponent]
