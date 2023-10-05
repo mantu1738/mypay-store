@@ -1,11 +1,11 @@
 @import "../../../../variables.scss";
 
 .login {
-    width: 500px;
+    max-width: 400px;
     background-color: $white-color;
     box-shadow: $primary-box-shadow;
     padding: 0.8rem;
-    margin: 1rem auto;
+    margin: 2.5rem auto;
     border-radius: 5px;
 
     &__title {
@@ -32,8 +32,13 @@
             width: 100%;
             padding: 0.6rem;
             border-radius: 5px;
+            border: 2px solid $background-color;
             outline: none;
-            box-sizing: border-box;
+
+            &:focus {
+                outline: none;
+                border-color: $primary-color;
+            }
         }
     }
 
@@ -42,7 +47,18 @@
         font-weight: 500;
     }
 
+    &__buttons {
+        @include flex(column, center, flex-start, 0.4rem);
+    }
+
+    &__message {
+        font-size: 1rem;
+        color: $primary-color;
+        font-weight: 600;
+    }
+
     &__button {
+        text-decoration: none;
         background-color: $primary-color;
         color: $white-color;
         font-weight: 700;
@@ -51,6 +67,8 @@
         border-radius: 5px;
         cursor: pointer;
         width: 100%;
+        text-align: center;
+
     }
 
     &__button:disabled {

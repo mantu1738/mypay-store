@@ -3,7 +3,7 @@ import { CommonModule, LocationStrategy, PathLocationStrategy } from '@angular/c
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
@@ -34,6 +34,8 @@ import {
   WomenClothingComponent
 } from '@layout/index';
 
+import { SignupComponent } from './layout/pages/sign-up/sign-up.component';
+
 
 @NgModule({
   declarations:
@@ -56,7 +58,8 @@ import {
       ProductDetailComponent,
       LoginPageComponent,
       CartComponent,
-      CartItemComponent
+      CartItemComponent,
+      SignupComponent
     ],
   imports: [
     BrowserModule,
@@ -65,7 +68,8 @@ import {
     FontAwesomeModule,
     HttpClientModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
   bootstrap: [AppComponent]

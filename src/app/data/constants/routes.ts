@@ -10,6 +10,7 @@ import {
     LoginPageComponent,
     CartComponent
 } from '@app/layout/index';
+import { SignupComponent } from '@app/layout/pages/sign-up/sign-up.component';
 
 /**
  * List of routes for the application.
@@ -63,5 +64,9 @@ export const routes: Routes = [
     {
         path: 'cart',
         component: CartComponent,
+    },
+    {
+        path: 'signup',
+        component: SignupComponent
     }
 ]
