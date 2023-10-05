@@ -8,8 +8,18 @@ import { apiUrl } from '@app/data/constants/apiUrl';
     providedIn: 'root'
 })
 export class CategoryService {
+    /**
+     * @constructor
+     * @param http - The HttpClient module for making HTTP requests.
+     * @returns An instance of the CategoryService class.
+     */
     constructor(private http: HttpClient) { }
 
+    /**
+     * Get the categories.
+     * @method
+     * @returns An observable of an array of strings representing the categories.
+     */
     getCategories(): Observable<string[]> {
         return this.http.get<string[]>(apiUrl.categories);
     }

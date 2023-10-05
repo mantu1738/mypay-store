@@ -61,6 +61,8 @@
     position: relative;
 
     &__badge {
+        @include flex(row, center, center);
+
         position: absolute;
         top: -0.5rem;
         right: -0.5rem;
@@ -71,8 +73,5 @@
         color: $white-color;
         font-size: 1rem;
         font-weight: 700;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 }

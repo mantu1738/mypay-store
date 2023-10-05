@@ -1,7 +1,7 @@
 @import "../../../../variables.scss";
 
 .cart {
-    height: 317px;
+    height: 358px;
     display: flex;
     align-self: start;
     width: 100%;
@@ -26,7 +26,7 @@
     }
 
     &__list {
-        height: 317px;
+        height: 358px;
         flex: 1;
         overflow-y: auto;
         padding: 1rem;
@@ -42,13 +42,12 @@
 
     @media screen and (max-width: 768px) {
         flex-direction: column;
+        height: auto;
     }
 }
 
 .checkout {
     @include custom-scrollbar(8px, $primary-color, $secondary-color);
-
-    height: 317px;
     overflow-y: auto;
     position: relative;
 

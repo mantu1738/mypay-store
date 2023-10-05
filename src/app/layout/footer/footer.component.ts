@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 @Component({

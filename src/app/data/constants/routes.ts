@@ -1,14 +1,20 @@
 import { Routes } from '@angular/router';
 
-import { ElectronicsProductsComponent } from '@app/layout/pages/electronics-products/electronics-products.component';
-import { JeweleryProductsComponent } from '@app/layout/pages/jewelery-products/jewelery-products.component';
-import { MenClothingComponent } from '@app/layout/pages/men-clothing/men-clothing.component';
-import { ProductsListComponent } from '@app/layout/pages/products-list/products-list.component';
-import { WomenClothingComponent } from '@app/layout/pages/women-clothing/women-clothing.component';
-import { ProductDetailComponent } from '@app/layout/pages/product-detail/product-detail.component';
-import { LoginPageComponent } from '@app/layout/pages/login-page/login-page.component';
-import { CartComponent } from '@app/layout/pages/cart/cart.component';
+import {
+    ProductsListComponent,
+    ElectronicsProductsComponent,
+    JeweleryProductsComponent,
+    MenClothingComponent,
+    WomenClothingComponent,
+    ProductDetailComponent,
+    LoginPageComponent,
+    CartComponent
+} from '@app/layout/index';
 
+/**
+ * List of routes for the application.
+ * @type {Route[]}
+ */
 export const routes: Routes = [
     {
         path: '',

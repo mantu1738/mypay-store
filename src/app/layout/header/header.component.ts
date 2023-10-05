@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
-import { userService } from '@app/shared/services/user.service';
-import { CartService } from '@app/shared/services/cart.service';
 
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+
+import { userService } from '@app/shared/services/user.service';
+import { CartService } from '@app/shared/services/cart.service';
 
 
 @Component({
@@ -13,14 +14,36 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  /**
+   * Represents the file path to the logo image.
+   * @type {string}
+   */
   logoImagePath: string = '../../../assets/mypayLogo.png';
+
+  /**
+   * Represents the Font Awesome icon for the shopping cart.
+   * @type {any}
+   */
   shoppingCartIcon: any = faShoppingCart;
+
+  /**
+   * Indicates whether the current route is a login route.
+   * @type {boolean}
+   */
   isLoginRoute: boolean = false;
+
+  /**
+   * Indicates whether the user is logged in.
+   * @type {boolean}
+   */
   isLogged: boolean = false;
+
+  /**
+   * Represents the current value of the shopping cart.
+   * Initialized with the cart count obtained from the CartService.
+   * @type {number}
+   */
   cartValue: number = this.CartService.getCartCount();
-
-
-
 
   /**
   * Constructor for a class that utilizes Angular Router and ActivatedRoute
@@ -37,22 +60,44 @@ export class HeaderComponent implements OnInit {
       });
   }
 
+  /**
+   * Lifecycle hook called after the component has been initialized.
+   * Subscribes to the `loggedIn$` observable from the `userService` to update the `isLogged` property.
+   * Subscribes to the `cartItemCount$` observable from the `CartService` to update the `cartValue` property.
+   * @method
+   * @returns {void}
+   */
   ngOnInit(): void {
-    this.isLogged = this.userService.isLogged();
+    this.userService.loggedIn$.subscribe(loggedIn => {
+      this.isLogged = loggedIn;
+    });
+
     this.CartService.cartItemCount$.subscribe(count => {
       this.cartValue = count;
     });
   }
 
-
-  redirectLogin() {
+  /**
+   * Redirects the user to the login page by changing the window location.
+   * @method
+   * @returns {void}
+   */
+  redirectLogin(): void {
     window.location.href = '/login';
   }
 
-  logOut() {
+  /**
+  * Logs the user out, clears the shopping cart, and redirects to the login page.
+  * Calls the `logout` method from the `userService` to log the user out.
+  * Changes the window location to redirect the user to the login page.
+  * Calls the `clearCart` method from the `CartService` to clear the shopping cart.
+  * @method
+  * @returns {void}
+  */
+  logOut(): void {
     this.userService.logout();
-    // this.isLogged = false;
     window.location.href = '/login';
+    this.CartService.clearCart();
   }
 
 }

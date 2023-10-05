@@ -1,4 +1,3 @@
-<!-- button.component.html -->
-<button [type]="buttonType" (click)="handleClick()">
+<button [attr.aria-label]="buttonText" [type]="buttonType" (click)="handleClick()">
     {{ buttonText }}
 </button>

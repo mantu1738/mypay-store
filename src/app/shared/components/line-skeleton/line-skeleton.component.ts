@@ -12,6 +12,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ["./line-skeleton.component.scss"]
 })
 export class LineSkeletonComponent {
+  // The width and height of the skeleton.
   @Input() width: string = '100%';
+
+  // The width and height of the skeleton.
   @Input() height: string = '20px';
 }

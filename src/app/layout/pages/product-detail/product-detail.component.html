@@ -1,20 +1,21 @@
 <div *ngIf="product" class="product">
     <div class="product__image">
-        <img [src]="product?.image" [alt]="product.title">
+        <img [src]="product.image" [alt]="product.title">
     </div>
     <div class="product__details">
-        <h2 class="product__title">{{ product?.title }}</h2>
+        <h2 class="product__title">{{ product.title }}</h2>
         <div class="product__metadata">
             <p class="product__rating">Rating: <app-star-rating [rating]="product.rating.rate"></app-star-rating></p>
             <p class=" product__stock">Availability:
-                <span [ngStyle]="{ 'color': (product.rating.count ? 'green' : 'red') }">{{ product.rating.count > 0 ?
-                    'In Stock' : 'Out of Stock' }}
+                <span [ngStyle]="{ 'color': (product.rating.count ? 'green' : 'red') }">{{ product.rating.count ?
+                    (product.rating.count > 0 ?
+                    'In Stock' : 'Out of Stock'):'' }}
                 </span>
             </p>
             <p class=" product__price">Price: ${{ product.price }}</p>
         </div>
         <p class="product__desc">{{ product.description }}</p>
-        <app-button buttonText="Add to Cart"></app-button>
+        <app-button (onClick)="addToCart(product.id)" buttonText="Add to Cart"></app-button>
 
         <div class="product__comments comments">
             <h3 class="comments__title">Customer Comments</h3>
@@ -29,7 +30,6 @@
                     <p class="product__rating"><strong>Rating:</strong> <app-star-rating
                             [rating]="product.rating.rate"></app-star-rating></p>
                 </li>
-                <!-- Add more comments dynamically based on your data -->
             </ul>
         </div>
     </div>
