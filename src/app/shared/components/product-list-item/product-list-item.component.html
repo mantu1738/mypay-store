@@ -1,6 +1,6 @@
 <div class="product">
     <a class="product__itemLink" [routerLink]="routePath">
-        <img class="product__image" [src]="product.image" alt="{{ product.title }}">
+        <img class="product__image" [ngSrc]="product.image" alt="{{ product.title }}" width="150" height="150" priority>
     </a>
     <div class="product__details">
         <h3 class="product__title">{{ product.title }}</h3>

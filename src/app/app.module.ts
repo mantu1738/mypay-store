@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { CommonModule, LocationStrategy, PathLocationStrategy, NgOptimizedImage } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -91,6 +91,7 @@ const ngHttpCachingConfig: NgHttpCachingConfig = {
     FormsModule,
     ReactiveFormsModule,
     NgHttpCachingModule.forRoot(ngHttpCachingConfig),
+    NgOptimizedImage
   ],
   providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
   bootstrap: [AppComponent]

@@ -1,14 +1,17 @@
+<!-- HTML -->
 <div class="category">
+    <button att.aria-label="Menu Button and Close Button" class="category__toggle-btn" (click)="toggleMobileMenu()">
+        <fa-icon [icon]="mobileMenuOpen ? closeIcon : menuIcon"></fa-icon>
+    </button>
     <app-skeleton height="50px" *ngIf="loading; else category"></app-skeleton>
     <ng-template #category>
-        <ul class="category__list">
+        <ul class="category__list" [class.mobile-menu-open]="mobileMenuOpen">
             <li class="category__listItem">
                 <a class="category__link" [routerLink]="['/']">All</a>
             </li>
             <li class="category__listItem" *ngFor="let category of categories">
                 <a class="category__link" [routerLink]="[category]">{{ category }}</a>
             </li>
-
         </ul>
     </ng-template>
 </div>

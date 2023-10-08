@@ -1,14 +1,62 @@
 @import "../../../variables.scss";
 
 .category {
-    list-style: none;
+    position: relative;
     box-shadow: $primary-box-shadow;
+
+    &__toggle-btn {
+        position: inherit;
+        display: none;
+        border: none;
+        outline: none;
+        color: $primary-color;
+        background-color: transparent;
+        padding: 0.5rem 1.2rem;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1.2rem;
+        transition: transform 0.3s ease-in-out;
+
+        &:hover {
+            transform: rotate(180deg);
+        }
+
+
+
+        @media (max-width: 768px) {
+            display: block;
+        }
+    }
 
     &__list {
         @include flex(row, space-evenly, center, 0);
-
         padding: 0 1rem;
         list-style: none;
+        transition: all 0.3s ease-in-out;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            padding: 0;
+            position: absolute;
+            left: -300%;
+            z-index: -2;
+            background: $background-color;
+            width: 100%;
+            box-shadow: $primary-box-shadow;
+            transition: all 0.5s ease-in-out;
+
+            &.mobile-menu-open {
+                left: 0;
+                z-index: 3;
+            }
+        }
+    }
+
+    &__listItem {
+        @media (max-width: 768px) {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
     }
 
     &__link {
@@ -20,6 +68,11 @@
 
         &:hover {
             color: $secondary-color;
+        }
+
+        @media (max-width: 768px) {
+            padding: 0.5rem 0;
+            text-align: center;
         }
     }
 }

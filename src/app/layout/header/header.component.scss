@@ -45,15 +45,11 @@
     &__icon {
         color: $secondary-color;
         font-size: 2.4rem;
-        transition: all 0.3s ease-in-out;
+        transition: all 0.5s ease-in-out;
         cursor: pointer;
 
         &:hover {
             color: $primary-color;
-        }
-
-        @media screen and (max-width: 768px) {
-            font-size: 1.6rem;
         }
     }
 }

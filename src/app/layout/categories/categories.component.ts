@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faClose, faBars } from '@fortawesome/free-solid-svg-icons';
 
 import { CategoryService } from '@shared/services/category.service';
 
@@ -19,7 +20,12 @@ export class CategoriesComponent implements OnInit {
    * Indicates whether the component is in a loading state.
    * @type {boolean}
    */
-  loading = true;
+  loading: boolean = true;
+
+  mobileMenuOpen: boolean = false;
+
+  menuIcon = faBars;
+  closeIcon = faClose;
 
   /**
    * Creates an instance of CategoriesComponent.
@@ -43,5 +49,9 @@ export class CategoriesComponent implements OnInit {
       this.categories = categories;
       this.loading = false;
     });
+  }
+
+  toggleMobileMenu() {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
   }
 }
