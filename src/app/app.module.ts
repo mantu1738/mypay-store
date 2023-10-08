@@ -40,8 +40,16 @@ import { PayementModalComponent } from './shared/modals/payement-modal/payement-
 
 import { NgHttpCachingModule, NgHttpCachingConfig, NgHttpCachingStrategy } from 'ng-http-caching';
 
+/**
+ * Configuration for NgHttpCaching.
+ *
+ * @interface NgHttpCachingConfig
+ * @property {number} lifetime - The duration for which the cache remains valid, specified in milliseconds.
+ * @property {string[]} allowedMethod - An array of HTTP methods that are allowed for caching. E.g., ['GET', 'HEAD'].
+ * @property {NgHttpCachingStrategy} cacheStrategy - The caching strategy to be used (e.g., NgHttpCachingStrategy.ALLOW_ALL).
+ */
 const ngHttpCachingConfig: NgHttpCachingConfig = {
-  lifetime: 1000 * 60, // cache expire after 60 seconds,
+  lifetime: 60 * 60 * 24 * 365 * 1000, // 30 days
   allowedMethod: ['GET', 'HEAD'],
   cacheStrategy: NgHttpCachingStrategy.ALLOW_ALL,
 };
