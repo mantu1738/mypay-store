@@ -1,36 +1,40 @@
-<div *ngIf="product" class="product">
-    <div class="product__image">
-        <img [src]="product.image" [alt]="product.title">
-    </div>
-    <div class="product__details">
-        <h2 class="product__title">{{ product.title }}</h2>
-        <div class="product__metadata">
-            <p class="product__rating">Rating: <app-star-rating [rating]="product.rating.rate"></app-star-rating></p>
-            <p class=" product__stock">Availability:
-                <span [ngStyle]="{ 'color': (product.rating.count ? 'green' : 'red') }">{{ product.rating.count ?
-                    (product.rating.count > 0 ?
-                    'In Stock' : 'Out of Stock'):'' }}
-                </span>
-            </p>
-            <p class=" product__price">Price: ${{ product.price }}</p>
+<div class="product-loading">
+    <app-loading></app-loading>
+    <div class="product" *ngIf="isObjectNotEmpty(product)">
+        <div class="product__image">
+            <img [src]="product.image" [alt]="product.title">
         </div>
-        <p class="product__desc">{{ product.description }}</p>
-        <app-button (onClick)="addToCart(product.id)" buttonText="Add to Cart"></app-button>
+        <div class="product__details">
+            <h2 class="product__title">{{ product.title }}</h2>
+            <div class="product__metadata">
+                <p class="product__rating">Rating: <app-star-rating [rating]="product.rating.rate"></app-star-rating>
+                </p>
+                <p class=" product__stock">Availability:
+                    <span [ngStyle]="{ 'color': (product.rating.count ? 'green' : 'red') }">{{ product.rating.count ?
+                        (product.rating.count > 0 ?
+                        'In Stock' : 'Out of Stock'):'' }}
+                    </span>
+                </p>
+                <p class=" product__price">Price: ${{ product.price }}</p>
+            </div>
+            <p class="product__desc">{{ product.description }}</p>
+            <app-button (onClick)="addToCart(product.id)" buttonText="Add to Cart"></app-button>
 
-        <div class="product__comments comments">
-            <h3 class="comments__title">Customer Comments</h3>
-            <ul class="comments__list">
-                <li class="comments__item">
-                    <strong>John Doe:</strong> This product is amazing! Highly recommended.
-                    <p class="product__rating"><strong>Rating:</strong><app-star-rating
-                            [rating]="product.rating.rate"></app-star-rating></p>
-                </li>
-                <li class="comments__item">
-                    <strong>Jane Smith:</strong> The quality is excellent. I love it!
-                    <p class="product__rating"><strong>Rating:</strong> <app-star-rating
-                            [rating]="product.rating.rate"></app-star-rating></p>
-                </li>
-            </ul>
+            <div class="product__comments comments">
+                <h3 class="comments__title">Customer Comments</h3>
+                <ul class="comments__list">
+                    <li class="comments__item">
+                        <strong>John Doe:</strong> This product is amazing! Highly recommended.
+                        <p class="product__rating"><strong>Rating:</strong><app-star-rating
+                                [rating]="product.rating.rate"></app-star-rating></p>
+                    </li>
+                    <li class="comments__item">
+                        <strong>Jane Smith:</strong> The quality is excellent. I love it!
+                        <p class="product__rating"><strong>Rating:</strong> <app-star-rating
+                                [rating]="product.rating.rate"></app-star-rating></p>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

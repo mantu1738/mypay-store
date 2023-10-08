@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { NgHttpCachingModule, NgHttpCachingConfig, NgHttpCachingStrategy } from 'ng-http-caching';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,8 +16,11 @@ import {
   StarRatingComponent,
   LineSkeletonComponent,
   ProductListItemComponent,
-  CartItemComponent
+  CartItemComponent,
+  SnackbarComponent
 } from '@shared/components';
+
+import { PayementModalComponent } from '@shared/modals';
 
 import {
   HeaderComponent,
@@ -31,14 +34,10 @@ import {
   ProductDetailComponent,
   ProductsListComponent,
   MenClothingComponent,
-  WomenClothingComponent
+  WomenClothingComponent,
+  SignupComponent,
 } from '@layout/index';
-
-import { SignupComponent } from './layout/pages/sign-up/sign-up.component';
-import { SnackbarComponent } from './shared/components/snackbar/snackbar.component';
-import { PayementModalComponent } from './shared/modals/payement-modal/payement-modal.component';
-
-import { NgHttpCachingModule, NgHttpCachingConfig, NgHttpCachingStrategy } from 'ng-http-caching';
+import { LoadingComponent } from './shared/components/loading/loading.component';
 
 /**
  * Configuration for NgHttpCaching.
@@ -79,7 +78,8 @@ const ngHttpCachingConfig: NgHttpCachingConfig = {
       CartItemComponent,
       SignupComponent,
       SnackbarComponent,
-      PayementModalComponent
+      PayementModalComponent,
+      LoadingComponent
     ],
   imports: [
     BrowserModule,
@@ -93,7 +93,12 @@ const ngHttpCachingConfig: NgHttpCachingConfig = {
     NgHttpCachingModule.forRoot(ngHttpCachingConfig),
     NgOptimizedImage
   ],
-  providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
+  providers: [
+    {
+      provide: LocationStrategy,
+      useClass: PathLocationStrategy
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

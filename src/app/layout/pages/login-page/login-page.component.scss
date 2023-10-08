@@ -16,10 +16,9 @@
     }
 
     &__formgroup {
+        @include flex(column, flex-start, flex-start, 0.4rem);
+
         margin-bottom: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
 
         label {
             display: block;

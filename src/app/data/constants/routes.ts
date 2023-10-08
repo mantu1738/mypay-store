@@ -20,53 +20,66 @@ export const routes: Routes = [
     {
         path: '',
         component: ProductsListComponent,
+        data: { animationState: 1 }
     },
     {
         path: 'electronics',
         component: ElectronicsProductsComponent,
+        data: { animationState: 2 }
     },
     {
         path: 'jewelery',
-        component: JeweleryProductsComponent
+        component: JeweleryProductsComponent,
+        data: { animationState: 1 }
     },
     {
         path: `men's clothing`,
-        component: MenClothingComponent
+        component: MenClothingComponent,
+        data: { animationState: 2 }
     },
     {
         path: `women's clothing`,
-        component: WomenClothingComponent
+        component: WomenClothingComponent,
+        data: { animationState: 1 }
     },
     {
         path: 'product/:id',
-        component: ProductDetailComponent
+        component: ProductDetailComponent,
+        data: { animationState: 2 }
     },
     {
         path: 'electronics/product/:id',
-        component: ProductDetailComponent
+        component: ProductDetailComponent,
+        data: { animationState: 1 }
     },
     {
         path: 'jewelery/product/:id',
-        component: ProductDetailComponent
+        component: ProductDetailComponent,
+        data: { animationState: 2 }
     },
     {
         path: `men's clothing/product/:id`,
-        component: ProductDetailComponent
+        component: ProductDetailComponent,
+        data: { animationState: 1 }
     },
     {
         path: `women's clothing/product/:id`,
-        component: ProductDetailComponent
+        component: ProductDetailComponent,
+        data: { animationState: 2 }
     },
     {
         path: 'login',
-        component: LoginPageComponent
+        component: LoginPageComponent,
+        data: { animationState: 1 }
     },
     {
         path: 'cart',
         component: CartComponent,
+        data: { animationState: 2 }
     },
     {
         path: 'signup',
-        component: SignupComponent
+        component: SignupComponent,
+        data: { animationState: 1 }
     }
 ]

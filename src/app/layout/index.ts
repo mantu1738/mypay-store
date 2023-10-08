@@ -10,7 +10,8 @@ import {
     MenClothingComponent,
     ProductDetailComponent,
     ProductsListComponent,
-    WomenClothingComponent
+    WomenClothingComponent,
+    SignupComponent
 } from "./pages";
 
 
@@ -26,5 +27,6 @@ export {
     MenClothingComponent,
     ProductDetailComponent,
     ProductsListComponent,
-    WomenClothingComponent
+    WomenClothingComponent,
+    SignupComponent
 }

@@ -64,8 +64,8 @@
 }
 
 .item {
-    display: flex;
-    justify-content: space-between;
+    @include flex(row, space-between, center);
+
     box-shadow: $primary-box-shadow;
     padding: 0.8rem;
     margin-bottom: 0.4rem;

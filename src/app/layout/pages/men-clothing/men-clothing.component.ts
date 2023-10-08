@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 
 import { Product } from '@app/data/interfaces/products.interface';
+import { LoaderService } from '@app/shared/services/loader.service';
 import { ProductsService } from '@shared/services/products.service';
 
 @Component({
   selector: 'app-men-clothing',
   templateUrl: './men-clothing.component.html',
-  styleUrls: ['./men-clothing.component.scss']
+  styleUrls: ['../styles/product-lists.styles.scss']
 })
 export class MenClothingComponent {
   /**
@@ -20,7 +21,7 @@ export class MenClothingComponent {
    * @constructor
    * @param {ProductsService} productsService - The service responsible for fetching men's clothing products.
    */
-  constructor(private productsService: ProductsService) { }
+  constructor(private productsService: ProductsService, private loaderService: LoaderService) { }
 
   /**
    * Lifecycle hook called after the component has been initialized.
@@ -29,8 +30,10 @@ export class MenClothingComponent {
    * @returns {void}
    */
   ngOnInit(): void {
+    this.loaderService.showLoader();
     this.productsService.getMenClothing().subscribe(products => {
       this.products = products;
+      this.loaderService.hideLoader();
     });
   }
 }

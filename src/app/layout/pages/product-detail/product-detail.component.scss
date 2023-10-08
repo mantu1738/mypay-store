@@ -1,22 +1,25 @@
 @import "../../../../variables.scss";
 
+.product-loading {
+    position: relative;
+}
+
 .product {
+    @include flex(row, center, center);
+
     width: 100%;
     background: $white-color;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 1rem;
     box-shadow: $primary-box-shadow;
+    position: relative;
 
     @media screen and (max-width: 768px) {
         flex-direction: column;
     }
 
     &__image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex(row, center, center);
+
         flex: 1;
 
         @media screen and (max-width: 768px) {
@@ -35,12 +38,9 @@
     }
 
     &__details {
+        @include flex(column, center, flex-start, 0.6rem);
+
         flex: 2;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 0.6rem;
 
         @media screen and (max-width: 768px) {
             flex: 1;
@@ -56,9 +56,8 @@
     }
 
     &__metadata {
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
+        @include flex(column, flex-start, flex-start, 0.4rem);
+
         font-weight: 700;
 
         @media screen and (max-width: 768px) {
@@ -68,8 +67,7 @@
     }
 
     &__rating {
-        display: flex;
-        gap: 0.8rem;
+        @include flex(row, flex-start, center, 0.8rem);
     }
 
     &__desc {
@@ -82,18 +80,15 @@
 }
 
 .comments {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
+    @include flex(column, flex-start, flex-start, 0.4rem);
 
     @media screen and (max-width: 768px) {
         font-size: 0.5rem;
     }
 
     &__list {
+        @include flex(column, flex-start, flex-start, 0.4rem);
+
         list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
     }
 }

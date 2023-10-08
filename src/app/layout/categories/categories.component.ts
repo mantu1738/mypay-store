@@ -54,4 +54,8 @@ export class CategoriesComponent implements OnInit {
   toggleMobileMenu() {
     this.mobileMenuOpen = !this.mobileMenuOpen;
   }
+
+  onLinkClicked(): void {
+    this.mobileMenuOpen = false;
+  }
 }

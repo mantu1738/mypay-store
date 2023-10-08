@@ -58,8 +58,8 @@
 }
 
 .item {
-    display: flex;
-    justify-content: space-between;
+    @include flex(row, space-between, center);
+
     padding: 0.4rem 0;
     background: $white-color;
 

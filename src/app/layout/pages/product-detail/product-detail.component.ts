@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Product } from '@app/data/interfaces/products.interface';
 import { CartService } from '@app/shared/services/cart.service';
+import { LoaderService } from '@app/shared/services/loader.service';
 import { ProductsService } from '@app/shared/services/products.service';
 
 @Component({
@@ -28,7 +29,8 @@ export class ProductDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productsService: ProductsService,
-    private cartService: CartService
+    private cartService: CartService,
+    private loaderService: LoaderService
   ) { }
 
   /**
@@ -48,8 +50,10 @@ export class ProductDetailComponent implements OnInit {
    * @returns {void}
    */
   getProductDetails(): void {
+    this.loaderService.showLoader();
     this.productsService.getProductsById(this.productId).subscribe(product => {
       this.product = product;
+      this.loaderService.hideLoader();
     });
   }
 
@@ -61,6 +65,16 @@ export class ProductDetailComponent implements OnInit {
    */
   addToCart(productId: number): void {
     this.cartService.addToCartByProductId(productId).subscribe();
+  }
+
+  /**
+   * Checks whether the product object is empty.
+   * @param product - The product object to be checked.
+   * @method
+   * @returns {boolean} - Indicates whether the product object is empty.
+   */
+  isObjectNotEmpty(product: Product): boolean {
+    return Object.keys(product).length > 0;
   }
 }
 

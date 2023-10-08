@@ -43,15 +43,12 @@
 
 
     &__rating {
-        display: flex;
-        gap: 0.4rem;
+        @include flex(row, flex-start, center, 0.4rem);
     }
 }
 
 .info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
+    @include flex(column, flex-start, flex-start, 0.4rem);
 
     &__item {
         font-weight: 500;

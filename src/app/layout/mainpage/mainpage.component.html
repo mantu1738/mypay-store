@@ -1,8 +1,8 @@
 <main class="container">
     <app-header></app-header>
     <app-categories></app-categories>
-    <div [@fadeInOut]="getRouterOutletState(o)">
-        <router-outlet #o="outlet"></router-outlet>
+    <div [@routeTransition]="getRouteAnimationState()">
+        <router-outlet></router-outlet>
     </div>
     <app-footer></app-footer>
 </main>

@@ -5,7 +5,7 @@
     </button>
     <app-skeleton height="50px" *ngIf="loading; else category"></app-skeleton>
     <ng-template #category>
-        <ul class="category__list" [class.mobile-menu-open]="mobileMenuOpen">
+        <ul (click)="onLinkClicked()" class="category__list" [class.mobile-menu-open]="mobileMenuOpen">
             <li class="category__listItem">
                 <a class="category__link" [routerLink]="['/']">All</a>
             </li>
