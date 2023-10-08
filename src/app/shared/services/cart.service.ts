@@ -86,18 +86,25 @@ export class CartService {
     }
 
     /**
-     * Remove a product from the cart by its ID.
-     * @param productId - The ID of the product to remove from the cart.
-     */
+   * Remove a product from the cart by its ID.
+   * @param productId - The ID of the product to remove from the cart.
+   */
     removeFromCart(productId: number): void {
-        const index = this.cartItems.findIndex(item => item.id === productId);
+        const existingProduct = this.cartItems.find(item => item.id === productId);
 
-        if (index !== -1) {
-            this.cartItems.splice(index, 1);
+        if (existingProduct) {
+            if (existingProduct.quantity && existingProduct.quantity > 1) {
+                existingProduct.quantity -= 1;
+            } else {
+                const index = this.cartItems.findIndex(item => item.id === productId);
+                this.cartItems.splice(index, 1);
+            }
+
             this.saveCartItems();
             this.updateCartItemCount();
         }
     }
+
 
     /**
      * Clear all items from the cart.
@@ -108,6 +115,7 @@ export class CartService {
         this.cartItems = [];
         this.saveCartItems();
         this.updateCartItemCount();
+        this.loadCartItems();
     }
 
     /**

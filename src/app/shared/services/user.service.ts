@@ -20,6 +20,10 @@ export class userService {
      */
     loggedIn$ = this.loggedInSubject.asObservable();
 
+    constructor() {
+        this.getIsLogged();
+    }
+
     /**
     * Sets the authentication token in the local storage.
     * @param {string} token - The authentication token to be stored.

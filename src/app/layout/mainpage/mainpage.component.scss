@@ -3,3 +3,7 @@
 .container {
     background: $background-color;
 }
+
+.fade-in-out {
+    transition: opacity 0.5s;
+}

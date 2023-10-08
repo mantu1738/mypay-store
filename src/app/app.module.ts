@@ -35,6 +35,8 @@ import {
 } from '@layout/index';
 
 import { SignupComponent } from './layout/pages/sign-up/sign-up.component';
+import { SnackbarComponent } from './shared/components/snackbar/snackbar.component';
+import { PayementModalComponent } from './shared/modals/payement-modal/payement-modal.component';
 
 
 @NgModule({
@@ -59,7 +61,9 @@ import { SignupComponent } from './layout/pages/sign-up/sign-up.component';
       LoginPageComponent,
       CartComponent,
       CartItemComponent,
-      SignupComponent
+      SignupComponent,
+      SnackbarComponent,
+      PayementModalComponent
     ],
   imports: [
     BrowserModule,

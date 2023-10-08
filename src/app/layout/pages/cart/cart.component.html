@@ -1,4 +1,7 @@
 <div class="cart">
+    <app-custom-snackbar [message]="message" [isSnackbarOpen]="isSnackbarOpen"></app-custom-snackbar>
+    <app-payement-modal *ngIf="modalState" [cartItems]="cartItems" [total]="totalCartAmount" (onClose)="closeModal()"
+        (onPayement)="payNow()"></app-payement-modal>
     <div *ngIf="!cartItems.length" class="cart__empty">
         <fa-icon class="cart__icon" [icon]="cartIcon"></fa-icon>
         <span class="cart__text">Your cart is empty</span>
@@ -20,6 +23,6 @@
             <span>Grand Total:</span>
             <span>{{ totalCartAmount | currency:'USD':'symbol'}}</span>
         </div>
-        <app-button class="checkout__button" buttonText="Checkout"></app-button>
+        <app-button class="checkout__button" (onClick)="openModal()" buttonText="Checkout"></app-button>
     </div>
 </div>

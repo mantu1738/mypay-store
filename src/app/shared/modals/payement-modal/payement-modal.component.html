@@ -1,0 +1,24 @@
+<div class="modal-overlay" (click)="handleModal()">
+    <div class="modal">
+        <div class="modal__content">
+            <div class="modal__header header">
+                <h2 class="modal__title"> Order Summary </h2>
+                <button class="modal__close" (click)="handleModal()">&times;</button>
+            </div>
+            <div class="modal__body">
+                <div class="modal__summary">
+                    <div class="modal__item item" *ngFor="let item of cartItems; index as i">
+                        <div class="item__name">{{ i+1 +') ' + item.title }}</div>
+                        <div class="item__quantity">{{ item.quantity }}</div>
+                        <div class="item__price">{{ item.price | currency }}</div>
+                        <div class="item__total">{{ item.price * (item.quantity ? item.quantity : 0) | currency }}</div>
+                    </div>
+                </div>
+                <div class="modal__buttons">
+                    <app-button [buttonText]="'Pay ' + '$'+total" (onClick)="pay()"></app-button>
+                    <app-button buttonText="Close" (onClick)="closeModal()"></app-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

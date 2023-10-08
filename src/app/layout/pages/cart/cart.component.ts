@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 import { CartService } from '@app/shared/services/cart.service';
+import { ModalService } from '@app/shared/services/modal.service';
 import { Product } from '@app/data/interfaces/products.interface';
 
 
@@ -25,13 +26,18 @@ export class CartComponent implements OnInit {
    */
   cartIcon: any = faShoppingCart;
 
+  modalState: boolean = false;
+
+  isSnackbarOpen: boolean = false;
+  message: string = '';
+
 
   /**
    * Creates an instance of CartComponent.
    * @constructor
    * @param {CartService} cartService - The service responsible for managing the shopping cart.
    */
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private modalService: ModalService) { }
 
   /**
    * Lifecycle hook called after the component has been initialized.
@@ -73,6 +79,28 @@ export class CartComponent implements OnInit {
       totalAmount += item.price * (item.quantity ? item.quantity : 1);
     });
     return totalAmount;
+  }
+
+  openModal() {
+    this.modalService.openModal();
+    this.modalState = this.modalService.ModalState;
+  }
+
+  closeModal() {
+    this.modalService.closeModal();
+    this.modalState = this.modalService.ModalState;
+  }
+
+  payNow() {
+    this.modalService.closeModal();
+    this.modalState = this.modalService.ModalState;
+    this.message = "Your order has been placed successfully!!!";
+    this.isSnackbarOpen = true;
+    this.cartService.clearCart();
+    this.cartItems = [];
+    setTimeout(() => {
+      this.isSnackbarOpen = false;
+    }, 2000);
   }
 
 }

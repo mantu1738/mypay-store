@@ -34,5 +34,6 @@
             </div>
         </div>
         <button type="submit" [disabled]="!signupForm.valid" class="signup__button">Signup</button>
+        <app-custom-snackbar [message]="message" [isSnackbarOpen]="isSnackbarOpen"></app-custom-snackbar>
     </form>
 </div>

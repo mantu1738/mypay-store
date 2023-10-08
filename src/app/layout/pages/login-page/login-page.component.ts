@@ -51,12 +51,14 @@ export class LoginPageComponent implements OnInit {
   * @returns {void}
   */
   ngOnInit(): void {
-    if (this.isLogged) {
-      this.router.navigateByUrl('/');
-      this.userService.loggedIn$.subscribe(loggedIn => {
-        this.isLogged = loggedIn;
-      });
-    }
+    this.userService.loggedIn$.subscribe(loggedIn => {
+      this.isLogged = loggedIn;
+
+      // If user is logged in, navigate to the home page
+      if (this.isLogged) {
+        this.router.navigateByUrl('/');
+      }
+    });
   }
 
   /**

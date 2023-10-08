@@ -13,6 +13,7 @@ export const baseApiUrl = 'https://fakestoreapi.com';
  * @property {string} MenClothing - URL for fetching products in the 'Men's Clothing' category.
  * @property {string} WomenClothing - URL for fetching products in the 'Women's Clothing' category.
  * @property {string} userLogin - URL for user login authentication.
+ * @property {string} userSignup - URL for user signup.
  */
 export const apiUrl = {
     categories: `${baseApiUrl}/products/categories`,
@@ -22,4 +23,5 @@ export const apiUrl = {
     MenClothing: `${baseApiUrl}/products/category/men's clothing`,
     WomenClothing: `${baseApiUrl}/products/category/women's clothing`,
     userLogin: `${baseApiUrl}/auth/login`,
+    userSignup: `${baseApiUrl}/users`,
 };
