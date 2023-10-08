@@ -38,6 +38,14 @@ import { SignupComponent } from './layout/pages/sign-up/sign-up.component';
 import { SnackbarComponent } from './shared/components/snackbar/snackbar.component';
 import { PayementModalComponent } from './shared/modals/payement-modal/payement-modal.component';
 
+import { NgHttpCachingModule, NgHttpCachingConfig, NgHttpCachingStrategy } from 'ng-http-caching';
+
+const ngHttpCachingConfig: NgHttpCachingConfig = {
+  lifetime: 1000 * 60, // cache expire after 60 seconds,
+  allowedMethod: ['GET', 'HEAD'],
+  cacheStrategy: NgHttpCachingStrategy.ALLOW_ALL,
+};
+
 
 @NgModule({
   declarations:
@@ -73,7 +81,8 @@ import { PayementModalComponent } from './shared/modals/payement-modal/payement-
     HttpClientModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgHttpCachingModule.forRoot(ngHttpCachingConfig),
   ],
   providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
   bootstrap: [AppComponent]
