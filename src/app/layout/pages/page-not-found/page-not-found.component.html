@@ -1,0 +1,11 @@
+<section class='container'>
+    <span *ngFor="let particle of fourParticles" [ngClass]="'particle ' + particle">4</span>
+    <span *ngFor="let particle of zeroParticles" [ngClass]="'particle ' + particle">0</span>
+    <div class='content'>
+        <p>Damnit clientele,</p>
+        <p>You got lost in the <span class="content__404">404</span> galaxy.</p>
+        <p>
+            <a class="content__button" href="/">Go back to Home.</a>
+        </p>
+    </div>
+</section>

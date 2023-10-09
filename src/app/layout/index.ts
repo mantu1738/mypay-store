@@ -11,7 +11,8 @@ import {
     ProductDetailComponent,
     ProductsListComponent,
     WomenClothingComponent,
-    SignupComponent
+    SignupComponent,
+    PageNotFoundComponent
 } from "./pages";
 
 
@@ -28,5 +29,6 @@ export {
     ProductDetailComponent,
     ProductsListComponent,
     WomenClothingComponent,
-    SignupComponent
+    SignupComponent,
+    PageNotFoundComponent
 }

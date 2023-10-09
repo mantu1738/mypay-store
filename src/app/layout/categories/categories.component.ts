@@ -22,8 +22,13 @@ export class CategoriesComponent implements OnInit {
    */
   loading: boolean = true;
 
+  /**
+   * Indicates whether the mobile menu is open.
+   * @type {boolean}
+   */
   mobileMenuOpen: boolean = false;
 
+  // Font Awesome icons
   menuIcon = faBars;
   closeIcon = faClose;
 
@@ -51,10 +56,18 @@ export class CategoriesComponent implements OnInit {
     });
   }
 
-  toggleMobileMenu() {
+  /**
+   * Toggles the mobile menu state.
+   * @method
+   * @returns {void}
+   */
+  toggleMobileMenu(): void {
     this.mobileMenuOpen = !this.mobileMenuOpen;
   }
-
+  /**
+   * Closes the mobile menu.
+   * @method
+   */
   onLinkClicked(): void {
     this.mobileMenuOpen = false;
   }

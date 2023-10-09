@@ -1,7 +1,11 @@
-// animations.ts
-
 import { trigger, transition, style, animate } from '@angular/animations';
 
+/**
+ * Represents the route transition animation.
+ * @memberof RouteAnimations
+ * @export
+ * @see {@link https://angular.io/api/animations/trigger|Angular trigger animation}
+ */
 export const routeTransition = trigger('routeTransition', [
     transition('* => *', [
         style({ position: 'relative', opacity: 0, transform: 'scale(0.95)' }),

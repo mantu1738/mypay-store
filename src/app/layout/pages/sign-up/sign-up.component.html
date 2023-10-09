@@ -1,4 +1,4 @@
-<div class="signup">
+<section class="signup">
     <h2 class="signup__title">Signup</h2>
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
         <div class="signup__group form-group">
@@ -36,4 +36,4 @@
         <button type="submit" [disabled]="!signupForm.valid" class="signup__button">Signup</button>
         <app-custom-snackbar [message]="message" [isSnackbarOpen]="isSnackbarOpen"></app-custom-snackbar>
     </form>
-</div>
+</section>

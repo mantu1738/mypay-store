@@ -8,5 +8,9 @@ import { LoaderService } from '@app/shared/services/loader.service';
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class LoadingComponent {
+  /**
+   * @constructor
+   * @param loader Creates an instance of LoadingComponent.
+   */
   constructor(public loader: LoaderService) { }
 }

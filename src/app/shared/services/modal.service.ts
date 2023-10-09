@@ -4,20 +4,42 @@ import { Injectable } from '@angular/core';
     providedIn: 'root',
 })
 export class ModalService {
-    private modalState = false;
+    /**
+     * Represents the state of the modal.
+     * @type {boolean}
+     * @default false
+     */
+    private modalState: boolean = false;
 
+    /**
+     * @constructor
+     */
     constructor() { }
 
-    openModal() {
+    /**
+     * Opens the modal.
+     * @method
+     * @returns {void}
+     */
+    openModal(): void {
         this.modalState = true;
-        console.log('Modal state: ', this.modalState);
     }
 
-    closeModal() {
+    /**
+     * Closes the modal.
+     * @method
+     * @returns {void}
+     */
+    closeModal(): void {
         this.modalState = false;
     }
 
-    get ModalState() {
+    /**
+     * Returns the state of the modal.
+     * @method
+     * @returns {boolean} - The state of the modal.
+     */
+    get ModalState(): boolean {
         return this.modalState;
     }
 }

@@ -8,20 +8,58 @@ import { Product } from '@app/data/interfaces/products.interface';
   styleUrls: ['./payement-modal.component.scss']
 })
 export class PayementModalComponent {
-  @Output() onClose = new EventEmitter<void>();
-  @Output() onPayement = new EventEmitter<void>();
+
+  /**
+  * Emitted when the user closes the cart.
+  * @type {EventEmitter<void>}
+  */
+  @Output() onClose: EventEmitter<void> = new EventEmitter<void>();
+
+  /**
+   * Emitted when the user clicks on the pay button.
+   * @type {EventEmitter<void>}
+   */
+  @Output() onPayement: EventEmitter<void> = new EventEmitter<void>();
+
+  /**
+   * Represents the total price of the products in the cart.
+   * @type {number}
+   * @default 0
+   */
   @Input() total: number = 0;
+
+  /**
+   * Represents an array containing the products in the cart.
+   * @type {Product[]}
+   * @default []
+   * @memberof CartComponent
+   */
   @Input() cartItems: Product[] = [];
 
-  handleModal() {
+  /**
+   * Close Modal Function
+   * @method
+   * @returns {void}
+   */
+  handleModal(): void {
     this.onClose.emit();
   }
 
-  closeModal() {
+  /**
+   * close modal
+   * @method
+   * @returns {void}
+   */
+  closeModal(): void {
     this.onClose.emit();
   }
 
-  pay() {
+  /**
+   * Payement Function
+   * @method
+   * @returns {void}
+   */
+  pay(): void {
     this.onPayement.emit();
   }
 }

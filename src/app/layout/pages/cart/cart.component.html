@@ -1,4 +1,4 @@
-<div class="cart">
+<section class="cart">
     <app-custom-snackbar [message]="message" [isSnackbarOpen]="isSnackbarOpen"></app-custom-snackbar>
     <app-payement-modal *ngIf="modalState" [cartItems]="cartItems" [total]="totalCartAmount" (onClose)="closeModal()"
         (onPayement)="payNow()"></app-payement-modal>
@@ -25,4 +25,4 @@
         </div>
         <app-button class="checkout__button" (onClick)="openModal()" buttonText="Checkout"></app-button>
     </div>
-</div>
+</section>

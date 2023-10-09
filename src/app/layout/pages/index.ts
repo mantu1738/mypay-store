@@ -7,6 +7,7 @@ import { ProductDetailComponent } from "./product-detail/product-detail.componen
 import { ProductsListComponent } from "./products-list/products-list.component";
 import { WomenClothingComponent } from "./women-clothing/women-clothing.component";
 import { SignupComponent } from "./sign-up/sign-up.component";
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 export {
     CartComponent,
@@ -17,5 +18,6 @@ export {
     ProductDetailComponent,
     ProductsListComponent,
     WomenClothingComponent,
-    SignupComponent
+    SignupComponent,
+    PageNotFoundComponent
 }

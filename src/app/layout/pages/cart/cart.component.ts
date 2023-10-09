@@ -26,9 +26,22 @@ export class CartComponent implements OnInit {
    */
   cartIcon: any = faShoppingCart;
 
+  /**
+   * Represents the state of the modal.
+   * @type {boolean}
+   */
   modalState: boolean = false;
 
+  /**
+   * Represents the state of the snackbar.
+   * @type {boolean}
+   */
   isSnackbarOpen: boolean = false;
+
+  /**
+   * Represents the message to be displayed in the snackbar.
+   * @type {string}
+   */
   message: string = '';
 
 
@@ -81,17 +94,32 @@ export class CartComponent implements OnInit {
     return totalAmount;
   }
 
-  openModal() {
+  /**
+   * Opens the modal.
+   * @method
+   * @returns {void}
+   */
+  openModal(): void {
     this.modalService.openModal();
     this.modalState = this.modalService.ModalState;
   }
 
-  closeModal() {
+  /**
+   * Closes the modal.
+   * @method
+   * @returns {void}
+   */
+  closeModal(): void {
     this.modalService.closeModal();
     this.modalState = this.modalService.ModalState;
   }
 
-  payNow() {
+  /**
+   * Clears the shopping cart.
+   * @method
+   * @returns {void}
+   */
+  payNow(): void {
     this.modalService.closeModal();
     this.modalState = this.modalService.ModalState;
     this.message = "Your order has been placed successfully!!!";

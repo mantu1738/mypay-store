@@ -36,9 +36,9 @@ import {
   MenClothingComponent,
   WomenClothingComponent,
   SignupComponent,
+  PageNotFoundComponent
 } from '@layout/index';
 import { LoadingComponent } from './shared/components/loading/loading.component';
-
 /**
  * Configuration for NgHttpCaching.
  *
@@ -79,7 +79,8 @@ const ngHttpCachingConfig: NgHttpCachingConfig = {
       SignupComponent,
       SnackbarComponent,
       PayementModalComponent,
-      LoadingComponent
+      LoadingComponent,
+      PageNotFoundComponent
     ],
   imports: [
     BrowserModule,

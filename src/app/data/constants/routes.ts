@@ -8,9 +8,10 @@ import {
     WomenClothingComponent,
     ProductDetailComponent,
     LoginPageComponent,
-    CartComponent
+    CartComponent,
+    SignupComponent,
+    PageNotFoundComponent
 } from '@app/layout/index';
-import { SignupComponent } from '@app/layout/pages/sign-up/sign-up.component';
 
 /**
  * List of routes for the application.
@@ -81,5 +82,10 @@ export const routes: Routes = [
         path: 'signup',
         component: SignupComponent,
         data: { animationState: 1 }
+    },
+    {
+        path: '**',
+        component: PageNotFoundComponent,
+        data: { animationState: 2 }
     }
 ]

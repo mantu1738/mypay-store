@@ -19,11 +19,42 @@ function passwordMatchValidator(control: AbstractControl): ValidationErrors | nu
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignupComponent implements OnInit {
+  /**
+   * Represents the signup form.
+   * @type {FormGroup}
+   * @memberof SignupComponent
+   * @see {@link https://angular.io/api/forms/FormGroup|FormGroup}
+   */
   signupForm: FormGroup;
-  isLogged = false;
+
+  /**
+   * Represents the state of the user.
+   * @type {boolean}
+   * @memberof SignupComponent
+   */
+  isLogged: boolean = false;
+
+  /**
+   * Represents the message to be displayed in the snackbar.
+   * @type {string}
+   * @memberof SignupComponent
+   */
   message: string = '';
+
+  /**
+   * Represents the state of the snackbar.
+   * @type {boolean}
+   * @memberof SignupComponent
+   */
   isSnackbarOpen: boolean = false;
 
+  /**
+   * @constructor
+   * @param formBuilder Creates a form group instance from a config object. 
+   * @param signupService Creates a signup service instance. 
+   * @param router Creates a router instance.
+   * @param userService Creates a user service instance. 
+   */
   constructor(private formBuilder: FormBuilder, private signupService: SignupService, private router: Router, private userService: userService) {
     this.signupForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -33,6 +64,13 @@ export class SignupComponent implements OnInit {
     }, { validators: passwordMatchValidator });
   }
 
+  /**
+   * Lifecycle hook called after the component has been initialized.
+   * Subscribes to the user service to get the state of the user.
+   * @method
+   * @returns {void}
+   * @memberof SignupComponent
+   */
   ngOnInit(): void {
     this.userService.loggedIn$.subscribe(loggedIn => {
       this.isLogged = loggedIn;
@@ -45,7 +83,12 @@ export class SignupComponent implements OnInit {
   }
 
 
-  onSubmit() {
+  /**
+   * Submits the signup form.
+   * @method
+   * @returns {void}
+   */
+  onSubmit(): void {
     if (this.signupForm.valid) {
       this.signupService.signup(this.signupForm.value.username, this.signupForm.value.password, this.signupForm.value.email).subscribe(
         response => {

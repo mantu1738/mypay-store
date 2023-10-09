@@ -9,7 +9,20 @@ import { Component, Input } from '@angular/core';
 })
 export class SnackbarComponent {
 
+  /**
+   * Represents the message to be displayed in the snackbar.
+   * @type {string}
+   * @default ''
+   * @memberof SnackbarComponent
+   */
   @Input() message: string = '';
+
+  /**
+   * Represents the state of the snackbar.
+   * @type {boolean}
+   * @default false
+   * @memberof SnackbarComponent
+   */
   @Input() isSnackbarOpen: boolean = false;
 
 }

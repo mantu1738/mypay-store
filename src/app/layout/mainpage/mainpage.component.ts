@@ -11,24 +11,33 @@ import { filter } from 'rxjs/operators';
   animations: [routeTransition],
 })
 export class MainpageComponent {
+  // Default animation state (you can set it based on your starting route)
+  routeAnimationState: number = 1;
+
+  /**
+ * Creates an instance of YourComponent.
+ * @constructor 
+ * @param {Router} router - The Angular Router service used for navigation.
+ * @param {ActivatedRoute} activatedRoute - The Angular ActivatedRoute service used for accessing information about the current route.
+ */
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
-    // Subscribe to the NavigationEnd event to detect route changes
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
       this.routeAnimationState = this.getRouteAnimationState();
     });
   }
-  // Default animation state (you can set it based on your starting route)
-  routeAnimationState: number = 1;
 
+  /**
+  * Gets the animation state for route transitions.
+  * The animation state is retrieved from the data property of the first child snapshot of the activated route.
+  * If the animationState property is not found in the route data, a default value of 1 is provided.
+  * @method
+  * @returns {number} The animation state for route transitions.
+  */
   getRouteAnimationState(): number {
-    // Get the data property from the activated route
     const routeData = this.activatedRoute.firstChild?.snapshot.data;
-
-    // Use the animationState property from the route data or provide a default value
     const animationState = routeData?.['animationState'] || 1;
-
     return animationState;
   }
 }

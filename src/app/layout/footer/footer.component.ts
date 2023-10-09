@@ -7,7 +7,7 @@ import { faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-sv
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-
+  // Font Awesome icons
   facebookIcon = faFacebookF;
   instagramIcon = faInstagram;
   twitterIcon = faTwitter;

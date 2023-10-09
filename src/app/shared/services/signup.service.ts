@@ -8,11 +8,20 @@ import { apiUrl } from '@app/data/constants/apiUrl';
 })
 export class SignupService {
 
+    /**
+     * @constructor
+     * @param http Creates an instance of HttpClient.
+     */
     constructor(private http: HttpClient) { }
 
+    /**
+     * Sends a signup request to the server.
+     * @param username username of the user.
+     * @param password password of the user.
+     * @param email email of the user.
+     * @returns {Observable<any>} - An observable of any type.
+     */
     signup(username: string, password: string, email: string): Observable<any> {
-        // const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-
         const user = JSON.stringify(
             {
                 email: email,
@@ -35,8 +44,6 @@ export class SignupService {
                 phone: '1-570-236-7033'
             }
         );
-
-        // Make the HTTP POST request to the API endpoint
         return this.http.post<any>(apiUrl.userSignup, user);
     }
 }
