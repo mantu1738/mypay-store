@@ -1,5 +1,5 @@
 <div class="category">
-    <button att.aria-label="Menu Button and Close Button" class="category__toggle-btn" (click)="toggleMobileMenu()">
+    <button att.aria-label="Toggle Category" role="button" class="category__toggle-btn" (click)="toggleMobileMenu()">
         <fa-icon [icon]="mobileMenuOpen ? closeIcon : menuIcon"></fa-icon>
     </button>
     <app-skeleton height="50px" *ngIf="loading; else category"></app-skeleton>

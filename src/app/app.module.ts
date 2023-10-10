@@ -29,12 +29,8 @@ import {
   CategoriesComponent,
   CartComponent,
   LoginPageComponent,
-  ElectronicsProductsComponent,
-  JeweleryProductsComponent,
   ProductDetailComponent,
   ProductsListComponent,
-  MenClothingComponent,
-  WomenClothingComponent,
   SignupComponent,
   PageNotFoundComponent
 } from '@layout/index';
@@ -66,10 +62,6 @@ const ngHttpCachingConfig: NgHttpCachingConfig = {
       CategoriesComponent,
       LineSkeletonComponent,
       ProductsListComponent,
-      ElectronicsProductsComponent,
-      JeweleryProductsComponent,
-      MenClothingComponent,
-      WomenClothingComponent,
       ProductListItemComponent,
       StarRatingComponent,
       ProductDetailComponent,

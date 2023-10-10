@@ -4,13 +4,9 @@ import { FooterComponent } from "./footer/footer.component";
 import { CategoriesComponent } from "./categories/categories.component";
 import {
     CartComponent,
-    ElectronicsProductsComponent,
-    JeweleryProductsComponent,
     LoginPageComponent,
-    MenClothingComponent,
     ProductDetailComponent,
     ProductsListComponent,
-    WomenClothingComponent,
     SignupComponent,
     PageNotFoundComponent
 } from "./pages";
@@ -22,13 +18,9 @@ export {
     FooterComponent,
     CategoriesComponent,
     CartComponent,
-    ElectronicsProductsComponent,
-    JeweleryProductsComponent,
     LoginPageComponent,
-    MenClothingComponent,
     ProductDetailComponent,
     ProductsListComponent,
-    WomenClothingComponent,
     SignupComponent,
     PageNotFoundComponent
 }

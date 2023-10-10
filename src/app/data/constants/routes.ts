@@ -2,10 +2,6 @@ import { Routes } from '@angular/router';
 
 import {
     ProductsListComponent,
-    ElectronicsProductsComponent,
-    JeweleryProductsComponent,
-    MenClothingComponent,
-    WomenClothingComponent,
     ProductDetailComponent,
     LoginPageComponent,
     CartComponent,
@@ -25,22 +21,22 @@ export const routes: Routes = [
     },
     {
         path: 'electronics',
-        component: ElectronicsProductsComponent,
+        component: ProductsListComponent,
         data: { animationState: 2 }
     },
     {
         path: 'jewelery',
-        component: JeweleryProductsComponent,
+        component: ProductsListComponent,
         data: { animationState: 1 }
     },
     {
         path: `men's clothing`,
-        component: MenClothingComponent,
+        component: ProductsListComponent,
         data: { animationState: 2 }
     },
     {
         path: `women's clothing`,
-        component: WomenClothingComponent,
+        component: ProductsListComponent,
         data: { animationState: 1 }
     },
     {
