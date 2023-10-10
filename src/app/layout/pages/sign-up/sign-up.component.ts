@@ -95,6 +95,7 @@ export class SignupComponent implements OnInit {
           if (response) {
             this.message = 'User created successfully';
             this.isSnackbarOpen = true;
+            localStorage.setItem('newUser', JSON.stringify(this.signupForm.value))
             setTimeout(() => {
               this.router.navigateByUrl('/login');
             }, 2500);
