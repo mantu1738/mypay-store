@@ -13,15 +13,23 @@ export class userService {
     * @private
     */
     private loggedInSubject = new BehaviorSubject<boolean>(false);
+    private usernameSubject = new BehaviorSubject<string | null>(this.getUsernameFromLocalStorage());
 
     /**
      * Observable that clients can subscribe to in order to receive updates
      * about the logged-in status.
      */
     loggedIn$ = this.loggedInSubject.asObservable();
+    username$ = this.usernameSubject.asObservable();
 
+    /**
+     * @constructor
+     * The constructor of the service.
+     * Observable that clients can subscribe to in order to receive updates
+     */
     constructor() {
         this.getIsLogged();
+        this.getUsername();
     }
 
     /**
@@ -34,11 +42,30 @@ export class userService {
         this.getIsLogged();
     }
 
+    /**
+     * Sets the username in the local storage.
+     * @param username - The username to be stored.
+     * @returns {void}
+     */
     setUsername(username: string): void {
         localStorage.setItem('username', username);
+        this.usernameSubject.next(username);
     }
 
-    getUsername(): string | null {
+    /**
+     * Gets the username from the local storage and updates the 'usernameSubject' BehaviorSubject.
+     * @returns {void}
+     */
+    getUsername(): void {
+        this.usernameSubject.next(this.getUsernameFromLocalStorage());
+    }
+
+    /**
+     * Gets the username from the local storage.
+     * @private
+     * @returns {string | null} - The username from the local storage.
+     */
+    private getUsernameFromLocalStorage(): string | null {
         return localStorage.getItem('username');
     }
 

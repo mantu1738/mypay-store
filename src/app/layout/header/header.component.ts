@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit {
    * The username of the logged-in user.
    * @type {string}
    */
-  username: string | null = this.userService.getUsername();
+  username: string | null = '';
 
   /**
    * The random color for the user avatar.
@@ -87,6 +87,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.userService.loggedIn$.subscribe(loggedIn => {
       this.isLogged = loggedIn;
+    });
+
+    this.userService.username$.subscribe(username => {
+      this.username = username;
     });
 
     this.CartService.cartItemCount$.subscribe(count => {
