@@ -1,4 +1,6 @@
 <section class="login">
+    <app-custom-snackbar [error]="errorType" [message]="message"
+        [isSnackbarOpen]="isSnackbarOpen"></app-custom-snackbar>
     <h3 class="login__title">Login</h3>
     <form (ngSubmit)="login()" #loginForm="ngForm">
         <div class="login__formgroup">

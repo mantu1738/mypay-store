@@ -32,7 +32,18 @@ export class LoginPageComponent implements OnInit {
    * Error messages to be displayed in case of login failure.
    * @type {string}
    */
-  errorMessages: string = '';
+  message: string = '';
+
+  /**
+   * Indicates whether the error is of type 401 (Unauthorized).
+   */
+  errorType: boolean = false;
+
+  /**
+   * Indicates whether the snackbar is open.
+   * @type {boolean}
+   */
+  isSnackbarOpen: boolean = false;
 
   /**
  * Creates an instance of LoginPageComponent.
@@ -82,7 +93,12 @@ export class LoginPageComponent implements OnInit {
           }
         },
         r => {
-          this.errorMessages = r.error.message;
+          this.message = "Invalid username or password.";
+          this.isSnackbarOpen = true;
+          this.errorType = true;
+          setTimeout(() => {
+            this.isSnackbarOpen = false;
+          }, 3000);
         });
   }
 }
