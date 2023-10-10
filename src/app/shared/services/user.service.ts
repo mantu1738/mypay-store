@@ -34,6 +34,14 @@ export class userService {
         this.getIsLogged();
     }
 
+    setUsername(username: string): void {
+        localStorage.setItem('username', username);
+    }
+
+    getUsername(): string | null {
+        return localStorage.getItem('username');
+    }
+
     /**
      * Checks whether the user is logged in by updating the 'loggedInSubject'
      * BehaviorSubject based on the presence of the authentication token in the local storage.

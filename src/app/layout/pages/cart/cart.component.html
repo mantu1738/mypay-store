@@ -23,6 +23,9 @@
             <span>Grand Total:</span>
             <span>{{ totalCartAmount | currency:'USD':'symbol'}}</span>
         </div>
-        <app-button class="checkout__button" (onClick)="openModal()" buttonText="Checkout"></app-button>
+        <div class="checkout__buttons">
+            <app-button class="checkout__button" (onClick)="openModal()" buttonText="Checkout"></app-button>
+            <app-button *ngIf="!isLogged" class="checkout__button" routerLink="/login" buttonText="Login"></app-button>
+        </div>
     </div>
 </section>

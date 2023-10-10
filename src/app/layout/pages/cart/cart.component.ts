@@ -5,6 +5,8 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { CartService } from '@app/shared/services/cart.service';
 import { ModalService } from '@app/shared/services/modal.service';
 import { Product } from '@app/data/interfaces/products.interface';
+import { userService } from '@app/shared/services/user.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -44,13 +46,19 @@ export class CartComponent implements OnInit {
    */
   message: string = '';
 
+  /**
+   * Indicates whether the user is logged in.
+   * @type {boolean}
+   */
+  isLogged: boolean = false;
+
 
   /**
    * Creates an instance of CartComponent.
    * @constructor
    * @param {CartService} cartService - The service responsible for managing the shopping cart.
    */
-  constructor(private cartService: CartService, private modalService: ModalService) { }
+  constructor(private cartService: CartService, private modalService: ModalService, private userService: userService, private router: Router) { }
 
   /**
    * Lifecycle hook called after the component has been initialized.
@@ -59,6 +67,9 @@ export class CartComponent implements OnInit {
    * @returns {void}
    */
   ngOnInit(): void {
+    this.userService.loggedIn$.subscribe(loggedIn => {
+      this.isLogged = loggedIn;
+    });
     this.cartItems = this.cartService.getCartItems();
   }
 
@@ -100,8 +111,16 @@ export class CartComponent implements OnInit {
    * @returns {void}
    */
   openModal(): void {
-    this.modalService.openModal();
-    this.modalState = this.modalService.ModalState;
+    if (this.isLogged) {
+      this.modalService.openModal();
+      this.modalState = this.modalService.ModalState;
+    } else {
+      this.message = "Please login to place your order!!";
+      this.isSnackbarOpen = true;
+      setTimeout(() => {
+        this.isSnackbarOpen = false;
+      }, 3000);
+    }
   }
 
   /**

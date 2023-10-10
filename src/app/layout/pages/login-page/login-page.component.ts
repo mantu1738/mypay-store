@@ -77,6 +77,7 @@ export class LoginPageComponent implements OnInit {
         r => {
           if (r.token) {
             this.userService.setToken(r.token);
+            this.userService.setUsername(this.username);
             this.router.navigateByUrl('/');
           }
         },

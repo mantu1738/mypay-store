@@ -7,9 +7,18 @@
             <span class="header__store">Store</span>
         </h1>
         <div class="header__rightnav">
-
+            <div *ngIf="isLogged && !isLoginRoute" class="header__user">
+                <div class="header__tooltip" (click)="toggleLogoutMenu()">
+                    <div class="header__avatar" [style.background-color]="randomColor">
+                        <span class="header__initials">{{ username?.charAt(0) }}</span>
+                    </div>
+                    <div *ngIf="showLogoutMenu" class="header__userdetails">
+                        <p class="header__username">{{ username }}</p>
+                        <app-button buttonText="Logout" (onClick)="logOut()"></app-button>
+                    </div>
+                </div>
+            </div>
             <app-button *ngIf="!isLoginRoute && !isLogged" buttonText="Login" (onClick)="redirectLogin()"></app-button>
-            <app-button *ngIf="isLogged && !isLoginRoute" buttonText="Logout" (onClick)="logOut()"></app-button>
             <div class="cartWrapper">
                 <fa-icon class="header__icon" routerLink="cart" [icon]="shoppingCartIcon"></fa-icon>
                 <span class="cartWrapper__badge">{{cartValue}}</span>

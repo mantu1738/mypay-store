@@ -1,4 +1,4 @@
-<section class="product-loading">
+<section [ngStyle]="{height: !isObjectNotEmpty(product) ? '60vh':'auto'}" class="product-loading">
     <app-loading></app-loading>
     <div class="product" *ngIf="isObjectNotEmpty(product)">
         <div class="product__image">

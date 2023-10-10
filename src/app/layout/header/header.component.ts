@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 
@@ -6,7 +6,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 import { userService } from '@app/shared/services/user.service';
 import { CartService } from '@app/shared/services/cart.service';
-
+import { generateRandomColor } from '@app/shared/utility/randomColor';
 
 @Component({
   selector: 'app-header',
@@ -39,6 +39,23 @@ export class HeaderComponent implements OnInit {
   isLogged: boolean = false;
 
   /**
+   * The username of the logged-in user.
+   * @type {string}
+   */
+  username: string | null = this.userService.getUsername();
+
+  /**
+   * The random color for the user avatar.
+   */
+  randomColor = generateRandomColor();
+
+  /**
+   * Indicates whether the logout menu is visible.
+   * @type {boolean}
+   */
+  showLogoutMenu: boolean = false;
+
+  /**
    * Represents the current value of the shopping cart.
    * Initialized with the cart count obtained from the CartService.
    * @type {number}
@@ -51,7 +68,7 @@ export class HeaderComponent implements OnInit {
   * @param {Router} router - The Angular Router service for navigation.
   * @param {ActivatedRoute} route - The Angular ActivatedRoute service for route information.
   */
-  constructor(private router: Router, private route: ActivatedRoute, private userService: userService, private CartService: CartService) {
+  constructor(private router: Router, private route: ActivatedRoute, private userService: userService, private CartService: CartService, private elementRef: ElementRef) {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
@@ -98,6 +115,30 @@ export class HeaderComponent implements OnInit {
     this.userService.logout();
     window.location.href = '/login';
     this.CartService.clearCart();
+  }
+
+  /**
+   * Toggles the logout menu.
+   * @method
+   * @returns {void}
+   */
+  toggleLogoutMenu(): void {
+    this.showLogoutMenu = !this.showLogoutMenu;
+  }
+
+  /**
+   * Closes the logout menu if the user clicks outside of it.
+   * @method
+   * @param event - The event object.
+   * @returns {void}
+   * @memberof HeaderComponent 
+   */
+  @HostListener('document:click', ['$event'])
+  onClick(event: Event): void {
+    // Close the menu if the clicked target is not inside the component
+    if (!this.elementRef.nativeElement.contains(event.target)) {
+      this.showLogoutMenu = false;
+    }
   }
 
 }
