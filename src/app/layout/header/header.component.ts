@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
    * Represents the file path to the logo image.
    * @type {string}
    */
-  logoImagePath: string = '../../../assets/mypayLogo.png';
+  logoImagePath: string = '../../../assets/mypayLogo.webp';
 
   /**
    * Represents the Font Awesome icon for the shopping cart.
